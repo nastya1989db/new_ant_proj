@@ -14,26 +14,12 @@ RUN wget https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.12-bin.tar
 ENV ANT_HOME=/usr/local/ant
 ENV PATH=${ANT_HOME}/bin:${PATH}
 
-WORKDIR /app/new_ant_proj
+RUN git clone https://github.com/nastya1989db/new_ant_proj.git clone1
 
-COPY ./src ./src
-COPY ./build.xml ./
+WORKDIR /clone1
 
-RUN ant compile jar
-
-#RUN git clone https://github.com/nastya1989db/new_ant_proj.git
-
-#WORKDIR /app/new_ant_proj
-
-#COPY . .
-
-#RUN ant
-
-#EXPOSE 8080
-
-#RUN cp build/jar/src/*.jar /build/jar/src/*.jar
-
-#RUN mv build/jar/HelloAnt.jar /HelloAnt.jar
+RUN ant
+RUN mv jar/HelloAnt.jar /HelloAnt.jar
 
 #CMD ["java", "-jar", "/app/new_ant_proj/target/HelloAnt.jar"]
-CMD ["java", "-jar", "/app/new_ant_proj/jar/HelloAnt.jar"]
+#CMD ["java", "-jar", "/app/new_ant_proj/jar/HelloAnt.jar"]
