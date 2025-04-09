@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<project name="new_ant_proj" default="compile">
+   <target name="compile">
+       <mkdir dir="classes"/>
+       <javac destdir="classes" includeantruntime="false">
+           <src path="src"/>
+       </javac>
+   </target>
+   <target name="run" depends="compile">
+       <java classname="HelloAnt" classpath="classes"/>
+   </target>
+   <target name="clean">
+       <delete dir="result"/>
+   </target>
+</project>
