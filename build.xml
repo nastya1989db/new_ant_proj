@@ -1,20 +1,36 @@
-<project>
-    <target name="compile">
-        <mkdir dir="classes"/>
-        <javac srcdir="src" destdir="classes"/>
+<?xml version="1.0"?>
+<project name="new_ant_proj" default="jar">
+
+    <!-- Определяем свойства -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="jar.dir" value="${build.dir}/jar"/>
+    <property name="main-class" value="HelloAnt"/>
+
+    <!-- Создаем директорию для классов -->
+    <target name="init">
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${jar.dir}"/>
     </target>
 
-    <target name="jar">
-        <mkdir dir="jar"/>
-        <jar destfile="jar/HelloAnt.jar" basedir="classes">
+    <!-- Компиляция исходников -->
+    <target name="compile" depends="init">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false"/>
+    </target>
+
+    <!-- Создание JAR-файла -->
+    <target name="jar" depends="compile">
+        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
             <manifest>
-                <attribute name="Main-Class" value="HelloAnt"/>
+                <attribute name="Main-Class" value="${HelloAnt}"/>
             </manifest>
         </jar>
     </target>
 
-    <target name="run">
-        <java jar="jar/HelloAnt.jar" fork="true"/>
+    <!-- Очистка директорий -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
     </target>
 
 </project>

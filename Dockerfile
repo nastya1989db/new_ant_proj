@@ -19,7 +19,8 @@ RUN git clone https://github.com/nastya1989db/new_ant_proj.git clone1
 WORKDIR /clone1
 
 RUN ant
-RUN mv jar/HelloAnt.jar /HelloAnt.jar
+#RUN mv jar/HelloAnt.jar /HelloAnt.jar
 
 #CMD ["java", "-jar", "/app/new_ant_proj/target/HelloAnt.jar"]
+
 #CMD ["java", "-jar", "/app/new_ant_proj/jar/HelloAnt.jar"]
