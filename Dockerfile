@@ -3,6 +3,7 @@ FROM openjdk:8-jdk-alpine
 #RUN apt-get update && apt-get upgrade -y
 
 RUN apk add --no-cache git
+RUN apk add --update vim
 
 # Скачиваем и устанавливаем Apache Ant
 RUN wget https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.12-bin.tar.gz \

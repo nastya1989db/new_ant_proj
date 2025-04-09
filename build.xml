@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="new_ant_proj" default="jar">
+<project name="HelloAnt" default="jar">
 
     <!-- Определяем свойства -->
     <property name="src.dir" value="src"/>
