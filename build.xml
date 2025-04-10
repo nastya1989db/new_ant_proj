@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="HelloAnt" default="jar">
+<project name="new_ant_proj" default="jar">
 
     <!-- Определяем свойства -->
     <property name="src.dir" value="src"/>
@@ -21,7 +21,7 @@
 
     <!-- Создание JAR-файла -->
     <target name="jar" depends="compile">
-        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+        <jar destfile="${jar.dir}/${HelloAnt}.jar" basedir="${classes.dir}">
             <manifest>
                 <attribute name="Main-Class" value="${HelloAnt}"/>
             </manifest>
